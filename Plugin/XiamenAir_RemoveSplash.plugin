@@ -1,0 +1,15 @@
+#!name=厦门航空 - 去开屏广告
+#!desc=去除厦门航空 App 启动/开屏广告
+#!author=ChatGPT
+#!homepage=https://loon.app
+#!icon=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/app/XiamenAir.png
+
+[MITM]
+hostname = app.xiamenair.com, *.xiamenair.com
+
+[Script]
+http-response ^https:\/\/app\.xiamenair\.com\/.*(start|startup|launch|splash|advert|ad).* \
+script-path = xiamenair_splash.js, requires-body=true, timeout=10
+
+[Rule]
+DOMAIN-SUFFIX,xiamenair.com,DIRECT
